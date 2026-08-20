@@ -3,6 +3,7 @@ import SwiftUI
 struct RootView: View {
     @EnvironmentObject var store: LodgeStore
     @State private var tab: Int = 0
+    @State private var lastTab: Int = 0
 
     var body: some View {
         ZStack {
@@ -10,13 +11,20 @@ struct RootView: View {
             VStack(spacing: 0) {
                 Group {
                     switch tab {
-                    case 0: SiteView()
-                    case 1: FabricView()
-                    case 2: LodgeView()
+                    case 0: TodayView()
+                    case 1: SiteView()
+                    case 2: FabricView()
+                    case 3: LodgeView()
                     default: RollsView()
                     }
                 }
+                .id(tab)
+                .transition(.asymmetric(
+                    insertion: .move(edge: tab >= lastTab ? .trailing : .leading)
+                        .combined(with: .opacity),
+                    removal: .opacity))
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .clipped()
                 tabBar
             }
         }
@@ -29,10 +37,11 @@ struct RootView: View {
 
     private var tabBar: some View {
         HStack(spacing: 0) {
-            tabButton(0, "Site", AnyView(SiteGlyph(size: 25, colour: tint(0))))
-            tabButton(1, "Fabric", AnyView(FabricGlyph(size: 25, colour: tint(1))))
-            tabButton(2, "Lodge", AnyView(LodgeGlyph(size: 25, colour: tint(2))))
-            tabButton(3, "Rolls", AnyView(RollsGlyph(size: 25, colour: tint(3))))
+            tabButton(0, "Today", AnyView(LodgeDayGlyph(size: 24, colour: tint(0))))
+            tabButton(1, "Site", AnyView(SiteGlyph(size: 24, colour: tint(1))))
+            tabButton(2, "Fabric", AnyView(FabricGlyph(size: 24, colour: tint(2))))
+            tabButton(3, "Lodge", AnyView(LodgeGlyph(size: 24, colour: tint(3))))
+            tabButton(4, "Rolls", AnyView(RollsGlyph(size: 24, colour: tint(4))))
         }
         .padding(.top, 9)
         .padding(.bottom, 3)
@@ -49,12 +58,19 @@ struct RootView: View {
     }
 
     private func tabButton(_ index: Int, _ label: String, _ icon: AnyView) -> some View {
-        Button(action: { tab = index }) {
+        Button(action: {
+            guard tab != index else { return }
+            StoneFeel.tap()
+            lastTab = tab
+            withAnimation(.easeOut(duration: 0.26)) { tab = index }
+        }) {
             VStack(spacing: 4) {
                 icon
                 Text(label.uppercased())
                     .font(StoneFont.title(9))
-                    .tracking(1.2)
+                    .tracking(0.9)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.72)
                     .foregroundColor(tint(index))
             }
             .frame(maxWidth: .infinity)

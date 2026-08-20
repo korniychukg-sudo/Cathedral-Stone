@@ -13,14 +13,18 @@
 		CS0000000000000000003004 /* LodgeStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CS0000000000000000001004 /* LodgeStore.swift */; };
 		CS0000000000000000003005 /* LodgeViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = CS0000000000000000001005 /* LodgeViews.swift */; };
 		CS0000000000000000003006 /* Marks.swift in Sources */ = {isa = PBXBuildFile; fileRef = CS0000000000000000001006 /* Marks.swift */; };
-		CS0000000000000000003007 /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CS0000000000000000001007 /* QuizView.swift */; };
-		CS0000000000000000003008 /* RollsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CS0000000000000000001008 /* RollsView.swift */; };
-		CS0000000000000000003009 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CS0000000000000000001009 /* RootView.swift */; };
-		CS0000000000000000003010 /* SectionCanvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = CS0000000000000000001010 /* SectionCanvas.swift */; };
-		CS0000000000000000003011 /* SiteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CS0000000000000000001011 /* SiteView.swift */; };
-		CS0000000000000000003012 /* StoneIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = CS0000000000000000001012 /* StoneIcons.swift */; };
-		CS0000000000000000003013 /* StoneTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = CS0000000000000000001013 /* StoneTheme.swift */; };
-		CS0000000000000000003014 /* StudyContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CS0000000000000000001014 /* StudyContent.swift */; };
+		CS0000000000000000003007 /* NaveScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CS0000000000000000001007 /* NaveScene.swift */; };
+		CS0000000000000000003008 /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CS0000000000000000001008 /* QuizView.swift */; };
+		CS0000000000000000003009 /* RollsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CS0000000000000000001009 /* RollsView.swift */; };
+		CS0000000000000000003010 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CS0000000000000000001010 /* RootView.swift */; };
+		CS0000000000000000003011 /* SeasonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CS0000000000000000001011 /* SeasonModel.swift */; };
+		CS0000000000000000003012 /* SeasonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CS0000000000000000001012 /* SeasonView.swift */; };
+		CS0000000000000000003013 /* SectionCanvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = CS0000000000000000001013 /* SectionCanvas.swift */; };
+		CS0000000000000000003014 /* SiteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CS0000000000000000001014 /* SiteView.swift */; };
+		CS0000000000000000003015 /* StoneIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = CS0000000000000000001015 /* StoneIcons.swift */; };
+		CS0000000000000000003016 /* StoneTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = CS0000000000000000001016 /* StoneTheme.swift */; };
+		CS0000000000000000003017 /* StudyContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CS0000000000000000001017 /* StudyContent.swift */; };
+		CS0000000000000000003018 /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CS0000000000000000001018 /* TodayView.swift */; };
 		CS0000000000000000004001 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CS0000000000000000002001 /* Assets.xcassets */; };
 		CS0000000000000000004002 /* Art in Resources */ = {isa = PBXBuildFile; fileRef = CS0000000000000000002002 /* Art */; };
 /* End PBXBuildFile section */
@@ -32,14 +36,18 @@
 		CS0000000000000000001004 /* LodgeStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LodgeStore.swift; sourceTree = "<group>"; };
 		CS0000000000000000001005 /* LodgeViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LodgeViews.swift; sourceTree = "<group>"; };
 		CS0000000000000000001006 /* Marks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Marks.swift; sourceTree = "<group>"; };
-		CS0000000000000000001007 /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
-		CS0000000000000000001008 /* RollsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollsView.swift; sourceTree = "<group>"; };
-		CS0000000000000000001009 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
-		CS0000000000000000001010 /* SectionCanvas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionCanvas.swift; sourceTree = "<group>"; };
-		CS0000000000000000001011 /* SiteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteView.swift; sourceTree = "<group>"; };
-		CS0000000000000000001012 /* StoneIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoneIcons.swift; sourceTree = "<group>"; };
-		CS0000000000000000001013 /* StoneTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoneTheme.swift; sourceTree = "<group>"; };
-		CS0000000000000000001014 /* StudyContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyContent.swift; sourceTree = "<group>"; };
+		CS0000000000000000001007 /* NaveScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaveScene.swift; sourceTree = "<group>"; };
+		CS0000000000000000001008 /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
+		CS0000000000000000001009 /* RollsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollsView.swift; sourceTree = "<group>"; };
+		CS0000000000000000001010 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		CS0000000000000000001011 /* SeasonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonModel.swift; sourceTree = "<group>"; };
+		CS0000000000000000001012 /* SeasonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonView.swift; sourceTree = "<group>"; };
+		CS0000000000000000001013 /* SectionCanvas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionCanvas.swift; sourceTree = "<group>"; };
+		CS0000000000000000001014 /* SiteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteView.swift; sourceTree = "<group>"; };
+		CS0000000000000000001015 /* StoneIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoneIcons.swift; sourceTree = "<group>"; };
+		CS0000000000000000001016 /* StoneTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoneTheme.swift; sourceTree = "<group>"; };
+		CS0000000000000000001017 /* StudyContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyContent.swift; sourceTree = "<group>"; };
+		CS0000000000000000001018 /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
 		CS0000000000000000002001 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CS0000000000000000002002 /* Art */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Art; sourceTree = "<group>"; };
 		CS0000000000000000002003 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -74,14 +82,18 @@
 				CS0000000000000000001004 /* LodgeStore.swift */,
 				CS0000000000000000001005 /* LodgeViews.swift */,
 				CS0000000000000000001006 /* Marks.swift */,
-				CS0000000000000000001007 /* QuizView.swift */,
-				CS0000000000000000001008 /* RollsView.swift */,
-				CS0000000000000000001009 /* RootView.swift */,
-				CS0000000000000000001010 /* SectionCanvas.swift */,
-				CS0000000000000000001011 /* SiteView.swift */,
-				CS0000000000000000001012 /* StoneIcons.swift */,
-				CS0000000000000000001013 /* StoneTheme.swift */,
-				CS0000000000000000001014 /* StudyContent.swift */,
+				CS0000000000000000001007 /* NaveScene.swift */,
+				CS0000000000000000001008 /* QuizView.swift */,
+				CS0000000000000000001009 /* RollsView.swift */,
+				CS0000000000000000001010 /* RootView.swift */,
+				CS0000000000000000001011 /* SeasonModel.swift */,
+				CS0000000000000000001012 /* SeasonView.swift */,
+				CS0000000000000000001013 /* SectionCanvas.swift */,
+				CS0000000000000000001014 /* SiteView.swift */,
+				CS0000000000000000001015 /* StoneIcons.swift */,
+				CS0000000000000000001016 /* StoneTheme.swift */,
+				CS0000000000000000001017 /* StudyContent.swift */,
+				CS0000000000000000001018 /* TodayView.swift */,
 				CS0000000000000000002001 /* Assets.xcassets */,
 				CS0000000000000000002002 /* Art */,
 				CS0000000000000000002003 /* Info.plist */,
@@ -173,14 +185,18 @@
 				CS0000000000000000003004 /* LodgeStore.swift in Sources */,
 				CS0000000000000000003005 /* LodgeViews.swift in Sources */,
 				CS0000000000000000003006 /* Marks.swift in Sources */,
-				CS0000000000000000003007 /* QuizView.swift in Sources */,
-				CS0000000000000000003008 /* RollsView.swift in Sources */,
-				CS0000000000000000003009 /* RootView.swift in Sources */,
-				CS0000000000000000003010 /* SectionCanvas.swift in Sources */,
-				CS0000000000000000003011 /* SiteView.swift in Sources */,
-				CS0000000000000000003012 /* StoneIcons.swift in Sources */,
-				CS0000000000000000003013 /* StoneTheme.swift in Sources */,
-				CS0000000000000000003014 /* StudyContent.swift in Sources */,
+				CS0000000000000000003007 /* NaveScene.swift in Sources */,
+				CS0000000000000000003008 /* QuizView.swift in Sources */,
+				CS0000000000000000003009 /* RollsView.swift in Sources */,
+				CS0000000000000000003010 /* RootView.swift in Sources */,
+				CS0000000000000000003011 /* SeasonModel.swift in Sources */,
+				CS0000000000000000003012 /* SeasonView.swift in Sources */,
+				CS0000000000000000003013 /* SectionCanvas.swift in Sources */,
+				CS0000000000000000003014 /* SiteView.swift in Sources */,
+				CS0000000000000000003015 /* StoneIcons.swift in Sources */,
+				CS0000000000000000003016 /* StoneTheme.swift in Sources */,
+				CS0000000000000000003017 /* StudyContent.swift in Sources */,
+				CS0000000000000000003018 /* TodayView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

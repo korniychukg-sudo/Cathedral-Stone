@@ -282,3 +282,39 @@ func formatCount(_ n: Int) -> String {
 }
 
 func formatYear(_ y: Int) -> String { "\(y)" }
+
+enum StoneFeel {
+    static func tick() {
+        let gen = UIImpactFeedbackGenerator(style: .light)
+        gen.prepare()
+        gen.impactOccurred(intensity: 0.42)
+    }
+
+    static func tap() {
+        let gen = UIImpactFeedbackGenerator(style: .light)
+        gen.prepare()
+        gen.impactOccurred(intensity: 0.6)
+    }
+
+    static func land(_ stars: Int) {
+        let gen = UIImpactFeedbackGenerator(style: stars >= 3 ? .heavy : .soft)
+        gen.prepare()
+        gen.impactOccurred(intensity: stars >= 3 ? 1.0 : 0.6)
+    }
+}
+
+struct RisingCard<Content: View>: View {
+    let index: Int
+    @ViewBuilder var content: () -> Content
+    @State private var shown = false
+
+    var body: some View {
+        content()
+            .opacity(shown ? 1 : 0)
+            .offset(y: shown ? 0 : 16)
+            .onAppear {
+                withAnimation(.easeOut(duration: 0.38)
+                    .delay(Double(index) * 0.06)) { shown = true }
+            }
+    }
+}

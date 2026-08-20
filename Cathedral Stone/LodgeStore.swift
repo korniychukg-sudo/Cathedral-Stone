@@ -22,6 +22,19 @@ struct BuiltChurch: Codable, Identifiable {
     var perfect: Bool { verdict == "safe" }
 }
 
+struct SeasonRecord: Codable, Identifiable {
+    var id: String
+    var dayIndex: Int
+    var programme: String
+    var wish: String
+    var verdict: String
+    var grade: String
+    var stoneSpent: Double
+    var stoneGrant: Double
+    var wishMet: Bool
+    var stars: Int
+}
+
 final class LodgeStore: ObservableObject {
     @Published var churches: [BuiltChurch] = []
     @Published var readLessons: Set<String> = []
@@ -31,6 +44,10 @@ final class LodgeStore: ObservableObject {
     @Published var quizBest: Int = 0
     @Published var quizTaken: Int = 0
     @Published var onboarded: Bool = false
+    @Published var seasons: [SeasonRecord] = []
+    @Published var streak: Int = 0
+    @Published var bestStreak: Int = 0
+    @Published var lastSeasonDay: Int = -9999
 
     private let key = "cathedral.stone.state.v1"
     private var loaded = false
@@ -46,6 +63,10 @@ final class LodgeStore: ObservableObject {
         var quizBest: Int
         var quizTaken: Int
         var onboarded: Bool
+        var seasons: [SeasonRecord]?
+        var streak: Int?
+        var bestStreak: Int?
+        var lastSeasonDay: Int?
     }
 
     func load() {
@@ -62,6 +83,10 @@ final class LodgeStore: ObservableObject {
         quizBest = snap.quizBest
         quizTaken = snap.quizTaken
         onboarded = snap.onboarded
+        seasons = snap.seasons ?? []
+        streak = snap.streak ?? 0
+        bestStreak = snap.bestStreak ?? 0
+        lastSeasonDay = snap.lastSeasonDay ?? -9999
         loaded = true
     }
 
@@ -71,7 +96,9 @@ final class LodgeStore: ObservableObject {
                             metElements: Array(metElements),
                             metCathedrals: Array(metCathedrals),
                             awards: Array(awards), quizBest: quizBest,
-                            quizTaken: quizTaken, onboarded: onboarded)
+                            quizTaken: quizTaken, onboarded: onboarded,
+                            seasons: seasons, streak: streak, bestStreak: bestStreak,
+                            lastSeasonDay: lastSeasonDay)
         if let data = try? JSONEncoder().encode(snap) {
             UserDefaults.standard.set(data, forKey: key)
         }
@@ -116,6 +143,49 @@ final class LodgeStore: ObservableObject {
     func resetProgress() {
         churches = []; readLessons = []; metElements = []; metCathedrals = []
         awards = []; quizBest = 0; quizTaken = 0
+        seasons = []; streak = 0; bestStreak = 0; lastSeasonDay = -9999
+        saveNow()
+    }
+
+    func season(for day: Int) -> SeasonRecord? {
+        seasons.first { $0.dayIndex == day }
+    }
+
+    var accountsClosed: Int { seasons.count }
+
+    var wishesMet: Int { seasons.filter { $0.wishMet }.count }
+
+    var lodgePoints: Int {
+        churches.count * 3
+            + churches.filter { $0.perfect }.count * 5
+            + readLessons.count * 3
+            + metElements.count * 2
+            + metCathedrals.count * 2
+            + seasons.count * 10
+            + wishesMet * 8
+            + seasons.filter { $0.stars >= 3 }.count * 13
+            + bestStreak * 5
+            + quizBest * 2
+    }
+
+    var liveStreak: Int {
+        let today = StoneDay.index()
+        if lastSeasonDay == today || lastSeasonDay == today - 1 { return streak }
+        return 0
+    }
+
+    func recordSeason(_ rec: SeasonRecord) {
+        guard season(for: rec.dayIndex) == nil else { return }
+        seasons.append(rec)
+        if seasons.count > 400 { seasons.removeFirst(seasons.count - 400) }
+        if rec.dayIndex == lastSeasonDay + 1 {
+            streak += 1
+        } else if rec.dayIndex != lastSeasonDay {
+            streak = 1
+        }
+        lastSeasonDay = max(lastSeasonDay, rec.dayIndex)
+        if streak > bestStreak { bestStreak = streak }
+        refreshAwards()
         saveNow()
     }
 

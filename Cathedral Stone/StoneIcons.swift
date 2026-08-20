@@ -141,3 +141,57 @@ struct RollsGlyph: View {
         .frame(width: size, height: size)
     }
 }
+
+struct LodgeDayGlyph: View {
+    var size: CGFloat = 24
+    var colour: Color = Stone.ink
+
+    var body: some View {
+        Canvas { ctx, rect in
+            let w = rect.width, h = rect.height
+
+            var ground = Path()
+            ground.move(to: CGPoint(x: w * 0.06, y: h * 0.86))
+            ground.addLine(to: CGPoint(x: w * 0.94, y: h * 0.86))
+            ctx.stroke(ground, with: .color(colour),
+                       style: StrokeStyle(lineWidth: w * 0.08, lineCap: .round))
+
+            var arch = Path()
+            arch.move(to: CGPoint(x: w * 0.24, y: h * 0.86))
+            arch.addLine(to: CGPoint(x: w * 0.24, y: h * 0.48))
+            arch.addQuadCurve(to: CGPoint(x: w * 0.50, y: h * 0.14),
+                              control: CGPoint(x: w * 0.28, y: h * 0.26))
+            arch.addQuadCurve(to: CGPoint(x: w * 0.76, y: h * 0.48),
+                              control: CGPoint(x: w * 0.72, y: h * 0.26))
+            arch.addLine(to: CGPoint(x: w * 0.76, y: h * 0.86))
+            ctx.stroke(arch, with: .color(colour),
+                       style: StrokeStyle(lineWidth: w * 0.085,
+                                          lineCap: .round, lineJoin: .round))
+
+            var flyer = Path()
+            flyer.move(to: CGPoint(x: w * 0.08, y: h * 0.86))
+            flyer.addLine(to: CGPoint(x: w * 0.08, y: h * 0.62))
+            flyer.addQuadCurve(to: CGPoint(x: w * 0.24, y: h * 0.52),
+                               control: CGPoint(x: w * 0.13, y: h * 0.50))
+            ctx.stroke(flyer, with: .color(colour.opacity(0.72)),
+                       style: StrokeStyle(lineWidth: w * 0.065,
+                                          lineCap: .round, lineJoin: .round))
+
+            var sun = Path()
+            let sx = w * 0.86, sy = h * 0.20, sr = w * 0.095
+            sun.addEllipse(in: CGRect(x: sx - sr, y: sy - sr, width: sr * 2, height: sr * 2))
+            ctx.fill(sun, with: .color(colour.opacity(0.85)))
+            var rays = Path()
+            for k in 0..<4 {
+                let a = Double(k) * .pi / 2 + 0.4
+                rays.move(to: CGPoint(x: sx + CGFloat(cos(a)) * sr * 1.6,
+                                      y: sy + CGFloat(sin(a)) * sr * 1.6))
+                rays.addLine(to: CGPoint(x: sx + CGFloat(cos(a)) * sr * 2.5,
+                                         y: sy + CGFloat(sin(a)) * sr * 2.5))
+            }
+            ctx.stroke(rays, with: .color(colour.opacity(0.6)),
+                       style: StrokeStyle(lineWidth: w * 0.05, lineCap: .round))
+        }
+        .frame(width: size, height: size)
+    }
+}
